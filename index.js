@@ -1,34 +1,9 @@
-/**
- * @format
- */
 import 'react-native-gesture-handler';
-import React from 'react';
+import { registerRootComponent } from 'expo';
 
-import {AppRegistry} from 'react-native';
-import {name as appName} from './app.json';
-import AlbumList from './src/components/AlbumList';
-import PhotoList from './src/components/PhotoList';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import App from './App';
 
-const Stack = createStackNavigator();
-
-// Create a component
-const App = () => (
-  <NavigationContainer>
-    <Stack.Navigator>
-      <Stack.Screen
-        name="albumList"
-        component={AlbumList}
-        options={{title: 'Albums'}}
-      />
-      <Stack.Screen
-        name="photoList"
-        component={PhotoList}
-        options={{title: 'Photos'}}
-      />
-    </Stack.Navigator>
-  </NavigationContainer>
-);
-
-AppRegistry.registerComponent(appName, () => App);
+// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
+// It also ensures that whether you load the app in Expo Go or in a native build,
+// the environment is set up appropriately
+registerRootComponent(App);
